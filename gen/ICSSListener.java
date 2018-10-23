@@ -1,7 +1,4 @@
 // Generated from G:/School/css compiler/ICA-CSS/CSS-Compiler/src/main/antlr4/nl/han/ica/icss/parser\ICSS.g4 by ANTLR 4.7
-
-package nl.han.ica.icss.parser;
-
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -19,16 +16,6 @@ public interface ICSSListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStylesheet(ICSSParser.StylesheetContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ICSSParser#stylesheetPart}.
-	 * @param ctx the parse tree
-	 */
-	void enterStylesheetPart(ICSSParser.StylesheetPartContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ICSSParser#stylesheetPart}.
-	 * @param ctx the parse tree
-	 */
-	void exitStylesheetPart(ICSSParser.StylesheetPartContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ICSSParser#stylerule}.
 	 * @param ctx the parse tree
@@ -60,16 +47,6 @@ public interface ICSSListener extends ParseTreeListener {
 	 */
 	void exitExpression(ICSSParser.ExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ICSSParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void enterValue(ICSSParser.ValueContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ICSSParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void exitValue(ICSSParser.ValueContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ICSSParser#operation}.
 	 * @param ctx the parse tree
 	 */
@@ -90,13 +67,97 @@ public interface ICSSListener extends ParseTreeListener {
 	 */
 	void exitOperator(ICSSParser.OperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ICSSParser#identifier}.
+	 * Enter a parse tree produced by {@link ICSSParser#property}.
 	 * @param ctx the parse tree
 	 */
-	void enterIdentifier(ICSSParser.IdentifierContext ctx);
+	void enterProperty(ICSSParser.PropertyContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ICSSParser#identifier}.
+	 * Exit a parse tree produced by {@link ICSSParser#property}.
 	 * @param ctx the parse tree
 	 */
-	void exitIdentifier(ICSSParser.IdentifierContext ctx);
+	void exitProperty(ICSSParser.PropertyContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code pixelLiteral}
+	 * labeled alternative in {@link ICSSParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterPixelLiteral(ICSSParser.PixelLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code pixelLiteral}
+	 * labeled alternative in {@link ICSSParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitPixelLiteral(ICSSParser.PixelLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code percentageLiteral}
+	 * labeled alternative in {@link ICSSParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterPercentageLiteral(ICSSParser.PercentageLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code percentageLiteral}
+	 * labeled alternative in {@link ICSSParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitPercentageLiteral(ICSSParser.PercentageLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code scalarLiteral}
+	 * labeled alternative in {@link ICSSParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterScalarLiteral(ICSSParser.ScalarLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code scalarLiteral}
+	 * labeled alternative in {@link ICSSParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitScalarLiteral(ICSSParser.ScalarLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code colorLiteral}
+	 * labeled alternative in {@link ICSSParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterColorLiteral(ICSSParser.ColorLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code colorLiteral}
+	 * labeled alternative in {@link ICSSParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitColorLiteral(ICSSParser.ColorLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code tagSelector}
+	 * labeled alternative in {@link ICSSParser#selector}.
+	 * @param ctx the parse tree
+	 */
+	void enterTagSelector(ICSSParser.TagSelectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code tagSelector}
+	 * labeled alternative in {@link ICSSParser#selector}.
+	 * @param ctx the parse tree
+	 */
+	void exitTagSelector(ICSSParser.TagSelectorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code classSelector}
+	 * labeled alternative in {@link ICSSParser#selector}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassSelector(ICSSParser.ClassSelectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code classSelector}
+	 * labeled alternative in {@link ICSSParser#selector}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassSelector(ICSSParser.ClassSelectorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code idSelector}
+	 * labeled alternative in {@link ICSSParser#selector}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdSelector(ICSSParser.IdSelectorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code idSelector}
+	 * labeled alternative in {@link ICSSParser#selector}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdSelector(ICSSParser.IdSelectorContext ctx);
 }

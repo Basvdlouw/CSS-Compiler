@@ -1,13 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: nl.han.ica.icss.parser.ParserTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.055 s <<< FAILURE! - in nl.han.ica.icss.parser.ParserTest
-testParseLevel0  Time elapsed: 0.046 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: 
-	at nl.han.ica.icss.parser.ParserTest.parseTestFile(ParserTest.java:50)
-	at nl.han.ica.icss.parser.ParserTest.testParseLevel0(ParserTest.java:59)
-
-testParseLevel1  Time elapsed: 0.001 s  <<< FAILURE!
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.068 s <<< FAILURE! - in nl.han.ica.icss.parser.ParserTest
+testParseLevel1  Time elapsed: 0.006 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 	at nl.han.ica.icss.parser.ParserTest.parseTestFile(ParserTest.java:50)
 	at nl.han.ica.icss.parser.ParserTest.testParseLevel1(ParserTest.java:66)
