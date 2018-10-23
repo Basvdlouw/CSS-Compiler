@@ -1,5 +1,27 @@
 grammar ICSS;
 
+//--- PARSER: ---
+
+//stylesheet: identifier+;
+//identifier: LOWER_IDENT | CAPITAL_IDENT | ID_IDENT | CLASS_IDENT;
+//statement: OPEN_BRACE values CLOSE_BRACE;
+//values: LOWER_IDENT COLON COLOR;
+
+@header{
+package nl.han.ica.icss.parser;
+}
+
+stylesheet: stylesheetPart*;
+stylesheetPart: stylerule;
+stylerule: identifier OPEN_BRACE declaration+ CLOSE_BRACE;
+declaration: LOWER_IDENT COLON expression;
+expression: value | operation;
+value: PIXELSIZE SEMICOLON | PERCENTAGE SEMICOLON | SCALAR SEMICOLON | COLOR SEMICOLON;
+operation: value operator value;
+operator: PLUS | MIN | MUL;
+identifier: LOWER_IDENT | CLASS_IDENT | ID_IDENT;
+
+
 //--- LEXER: ---
 
 //Literals
@@ -31,6 +53,3 @@ MIN: '-';
 MUL: '*';
 ASSIGNMENT_OPERATOR: ':=';
 
-//--- PARSER: ---
-
-stylesheet: EOF;
