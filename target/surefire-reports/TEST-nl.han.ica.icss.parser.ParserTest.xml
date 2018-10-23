@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="nl.han.ica.icss.parser.ParserTest" time="0.068" tests="4" errors="0" skipped="0" failures="3">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="nl.han.ica.icss.parser.ParserTest" time="0.08" tests="4" errors="0" skipped="0" failures="2">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\bas_v\AppData\Local\Temp\surefire3058695783946035550\surefirebooter2706987757903183691.jar C:\Users\bas_v\AppData\Local\Temp\surefire3058695783946035550 2018-10-23T15-13-41_772-jvmRun1 surefire6681713110853902255tmp surefire_03149751211499188175tmp"/>
+    <property name="sun.java.command" value="C:\Users\bas_v\AppData\Local\Temp\surefire8200971292976375825\surefirebooter4791285825519539580.jar C:\Users\bas_v\AppData\Local\Temp\surefire8200971292976375825 2018-10-23T15-46-01_015-jvmRun1 surefire7419746180662395000tmp surefire_05726714145880368589tmp"/>
     <property name="surefire.test.class.path" value="G:\School\css compiler\ICA-CSS\CSS-Compiler\target\test-classes;G:\School\css compiler\ICA-CSS\CSS-Compiler\target\classes;C:\Users\bas_v\.m2\repository\org\antlr\antlr4-runtime\4.7.1\antlr4-runtime-4.7.1.jar;C:\Users\bas_v\.m2\repository\com\google\guava\guava\23.0\guava-23.0.jar;C:\Users\bas_v\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\bas_v\.m2\repository\com\google\errorprone\error_prone_annotations\2.0.18\error_prone_annotations-2.0.18.jar;C:\Users\bas_v\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\bas_v\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\bas_v\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.1.0\junit-jupiter-api-5.1.0.jar;C:\Users\bas_v\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\bas_v\.m2\repository\org\opentest4j\opentest4j\1.0.0\opentest4j-1.0.0.jar;C:\Users\bas_v\.m2\repository\org\junit\platform\junit-platform-commons\1.1.0\junit-platform-commons-1.1.0.jar;C:\Users\bas_v\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.1.0\junit-jupiter-engine-5.1.0.jar;C:\Users\bas_v\.m2\repository\org\junit\platform\junit-platform-engine\1.1.0\junit-platform-engine-1.1.0.jar;C:\Users\bas_v\.m2\repository\org\junit\vintage\junit-vintage-engine\5.1.0\junit-vintage-engine-5.1.0.jar;C:\Users\bas_v\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\bas_v\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\bas_v\.m2\repository\org\junit\platform\junit-platform-launcher\1.1.0\junit-platform-launcher-1.1.0.jar;C:\Users\bas_v\.m2\repository\org\junit\platform\junit-platform-runner\1.1.0\junit-platform-runner-1.1.0.jar;C:\Users\bas_v\.m2\repository\org\junit\platform\junit-platform-suite-api\1.1.0\junit-platform-suite-api-1.1.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\bas_v"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\bas_v\AppData\Local\Temp\surefire3058695783946035550\surefirebooter2706987757903183691.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\bas_v\AppData\Local\Temp\surefire8200971292976375825\surefirebooter4791285825519539580.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_181\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -60,14 +60,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testParseLevel0" classname="nl.han.ica.icss.parser.ParserTest" time="0.053"/>
-  <testcase name="testParseLevel1" classname="nl.han.ica.icss.parser.ParserTest" time="0.006">
-    <failure type="org.opentest4j.AssertionFailedError:">org.opentest4j.AssertionFailedError: 
-	at nl.han.ica.icss.parser.ParserTest.parseTestFile(ParserTest.java:50)
-	at nl.han.ica.icss.parser.ParserTest.testParseLevel1(ParserTest.java:66)
-</failure>
-  </testcase>
-  <testcase name="testParseLevel2" classname="nl.han.ica.icss.parser.ParserTest" time="0.001">
+  <testcase name="testParseLevel0" classname="nl.han.ica.icss.parser.ParserTest" time="0.06"/>
+  <testcase name="testParseLevel1" classname="nl.han.ica.icss.parser.ParserTest" time="0.002"/>
+  <testcase name="testParseLevel2" classname="nl.han.ica.icss.parser.ParserTest" time="0.009">
     <failure type="org.opentest4j.AssertionFailedError:">org.opentest4j.AssertionFailedError: 
 	at nl.han.ica.icss.parser.ParserTest.parseTestFile(ParserTest.java:50)
 	at nl.han.ica.icss.parser.ParserTest.testParseLevel2(ParserTest.java:73)

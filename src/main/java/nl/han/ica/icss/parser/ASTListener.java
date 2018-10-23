@@ -47,6 +47,21 @@ public class ASTListener extends ICSSBaseListener {
     }
 
     @Override
+    public void enterVariableAssignment(ICSSParser.VariableAssignmentContext ctx) {
+        currentContainer.push(new VariableAssignment());
+    }
+
+    @Override
+    public void exitVariableAssignment(ICSSParser.VariableAssignmentContext ctx) {
+        ast.root.addChild(currentContainer.pop());
+    }
+
+    @Override
+    public void enterVariable(ICSSParser.VariableContext ctx) {
+        currentContainer.peek().addChild(new VariableReference(ctx.getText()));
+    }
+
+    @Override
     public void enterTagSelector(ICSSParser.TagSelectorContext ctx) {
         currentContainer.peek().addChild(new TagSelector(ctx.getText()));
     }

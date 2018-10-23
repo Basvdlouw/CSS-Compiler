@@ -16,6 +16,18 @@ public interface ICSSVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStylesheet(ICSSParser.StylesheetContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link ICSSParser#stylesheetPart}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStylesheetPart(ICSSParser.StylesheetPartContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ICSSParser#variableAssignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableAssignment(ICSSParser.VariableAssignmentContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link ICSSParser#stylerule}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -100,4 +112,10 @@ public interface ICSSVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIdSelector(ICSSParser.IdSelectorContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ICSSParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariable(ICSSParser.VariableContext ctx);
 }

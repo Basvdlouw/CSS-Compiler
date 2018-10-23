@@ -2,12 +2,15 @@ grammar ICSS;
 
 //--- PARSER: ---
 
-stylesheet: stylerule*;
+stylesheet: stylesheetPart*;
+stylesheetPart: stylerule | variableAssignment;
+variableAssignment: variable ASSIGNMENT_OPERATOR expression SEMICOLON;
 stylerule: selector OPEN_BRACE declaration+ CLOSE_BRACE;
-declaration: property COLON expression SEMICOLON;
+declaration: property COLON expression SEMICOLON | property COLON variable SEMICOLON;
 expression: literal | operation ;
 operation: SCALAR operator literal;
 operator: PLUS | MIN | MUL;
+
 
 property: LOWER_IDENT;
 literal:
@@ -18,9 +21,10 @@ literal:
 
 selector:
     LOWER_IDENT #tagSelector
-    | CAPITAL_IDENT #tagSelector
     | CLASS_IDENT #classSelector
     | ID_IDENT #idSelector;
+
+variable: CAPITAL_IDENT;
 
 
 //--- LEXER: ---

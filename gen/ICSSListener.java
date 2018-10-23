@@ -17,6 +17,26 @@ public interface ICSSListener extends ParseTreeListener {
 	 */
 	void exitStylesheet(ICSSParser.StylesheetContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ICSSParser#stylesheetPart}.
+	 * @param ctx the parse tree
+	 */
+	void enterStylesheetPart(ICSSParser.StylesheetPartContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ICSSParser#stylesheetPart}.
+	 * @param ctx the parse tree
+	 */
+	void exitStylesheetPart(ICSSParser.StylesheetPartContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ICSSParser#variableAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableAssignment(ICSSParser.VariableAssignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ICSSParser#variableAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableAssignment(ICSSParser.VariableAssignmentContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ICSSParser#stylerule}.
 	 * @param ctx the parse tree
 	 */
@@ -160,4 +180,14 @@ public interface ICSSListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIdSelector(ICSSParser.IdSelectorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ICSSParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariable(ICSSParser.VariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ICSSParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariable(ICSSParser.VariableContext ctx);
 }
