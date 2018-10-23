@@ -34,6 +34,8 @@ public class ASTListener extends ICSSBaseListener {
         return ast;
     }
 
+
+    //Traverse through tree using stack
     @Override
     public void enterStylesheet(ICSSParser.StylesheetContext ctx) {
         Stylesheet stylesheet = new Stylesheet();
