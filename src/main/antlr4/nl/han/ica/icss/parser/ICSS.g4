@@ -4,13 +4,19 @@ grammar ICSS;
 
 stylesheet: stylesheetPart*;
 variableAssignment: variableReference ASSIGNMENT_OPERATOR expression SEMICOLON;
-stylerule: selector OPEN_BRACE declaration+ CLOSE_BRACE;
+stylerule:
+    selector OPEN_BRACE declaration+ CLOSE_BRACE
+    | selector OPEN_BRACE declaration* stylerule+ CLOSE_BRACE;
 
 stylesheetPart:
     stylerule
     | variableAssignment;
 
 declaration:
+    propertyAssignment
+    | variableAssignment;
+
+propertyAssignment:
     property COLON expression SEMICOLON
     | property COLON variableReference SEMICOLON;
 

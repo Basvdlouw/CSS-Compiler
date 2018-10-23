@@ -40,6 +40,12 @@ public interface ICSSVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDeclaration(ICSSParser.DeclarationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link ICSSParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPropertyAssignment(ICSSParser.PropertyAssignmentContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link ICSSParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
