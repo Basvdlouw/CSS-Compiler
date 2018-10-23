@@ -1,9 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: nl.han.ica.icss.parser.ParserTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.083 s <<< FAILURE! - in nl.han.ica.icss.parser.ParserTest
-testParseLevel3  Time elapsed: 0.009 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: no viable alternative at input '.menu{color:#000000;LinkColor'
-	at nl.han.ica.icss.parser.ParserTest.parseTestFile(ParserTest.java:50)
-	at nl.han.ica.icss.parser.ParserTest.testParseLevel3(ParserTest.java:80)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s - in nl.han.ica.icss.parser.ParserTest

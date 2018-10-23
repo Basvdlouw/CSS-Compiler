@@ -36,7 +36,14 @@ public class ASTListener extends ICSSBaseListener {
 
     @Override
     public void enterStylesheet(ICSSParser.StylesheetContext ctx) {
-        ast.setRoot(new Stylesheet());
+        Stylesheet stylesheet = new Stylesheet();
+        currentContainer.push(stylesheet);
+        ast.setRoot(stylesheet);
+    }
+
+    @Override
+    public void exitStylesheet(ICSSParser.StylesheetContext ctx) {
+        currentContainer.pop();
     }
 
     @Override
@@ -46,7 +53,8 @@ public class ASTListener extends ICSSBaseListener {
 
     @Override
     public void exitStylerule(ICSSParser.StyleruleContext ctx) {
-        ast.root.addChild(currentContainer.pop());
+        Stylerule stylerule = (Stylerule) currentContainer.pop();
+        currentContainer.peek().addChild(stylerule);
     }
 
     @Override
@@ -56,7 +64,8 @@ public class ASTListener extends ICSSBaseListener {
 
     @Override
     public void exitVariableAssignment(ICSSParser.VariableAssignmentContext ctx) {
-        ast.root.addChild(currentContainer.pop());
+        VariableAssignment variableAssignment = (VariableAssignment) currentContainer.pop();
+        currentContainer.peek().addChild(variableAssignment);
     }
 
     @Override
@@ -140,7 +149,7 @@ public class ASTListener extends ICSSBaseListener {
 
     @Override
     public void enterPercentageLiteral(ICSSParser.PercentageLiteralContext ctx) {
-      currentContainer.peek().addChild(new PercentageLiteral(ctx.getText()));
+        currentContainer.peek().addChild(new PercentageLiteral(ctx.getText()));
     }
 
     @Override
