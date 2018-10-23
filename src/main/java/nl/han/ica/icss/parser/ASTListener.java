@@ -5,6 +5,9 @@ import nl.han.ica.icss.ast.literals.ColorLiteral;
 import nl.han.ica.icss.ast.literals.PercentageLiteral;
 import nl.han.ica.icss.ast.literals.PixelLiteral;
 import nl.han.ica.icss.ast.literals.ScalarLiteral;
+import nl.han.ica.icss.ast.operations.AddOperation;
+import nl.han.ica.icss.ast.operations.MultiplyOperation;
+import nl.han.ica.icss.ast.operations.SubtractOperation;
 import nl.han.ica.icss.ast.selectors.ClassSelector;
 import nl.han.ica.icss.ast.selectors.IdSelector;
 import nl.han.ica.icss.ast.selectors.TagSelector;
@@ -57,7 +60,7 @@ public class ASTListener extends ICSSBaseListener {
     }
 
     @Override
-    public void enterVariable(ICSSParser.VariableContext ctx) {
+    public void enterVariableReference(ICSSParser.VariableReferenceContext ctx) {
         currentContainer.peek().addChild(new VariableReference(ctx.getText()));
     }
 
@@ -85,6 +88,39 @@ public class ASTListener extends ICSSBaseListener {
     public void exitDeclaration(ICSSParser.DeclarationContext ctx) {
         Declaration declaration = (Declaration) currentContainer.pop();
         currentContainer.peek().addChild(declaration);
+    }
+
+    @Override
+    public void enterAddition(ICSSParser.AdditionContext ctx) {
+        currentContainer.push(new AddOperation());
+    }
+
+    @Override
+    public void exitAddition(ICSSParser.AdditionContext ctx) {
+        AddOperation addOperation = (AddOperation) currentContainer.pop();
+        currentContainer.peek().addChild(addOperation);
+    }
+
+    @Override
+    public void enterMultiplication(ICSSParser.MultiplicationContext ctx) {
+        currentContainer.push(new MultiplyOperation());
+    }
+
+    @Override
+    public void exitMultiplication(ICSSParser.MultiplicationContext ctx) {
+        MultiplyOperation multiplyOperation = (MultiplyOperation) currentContainer.pop();
+        currentContainer.peek().addChild(multiplyOperation);
+    }
+
+    @Override
+    public void enterInversiveAddition(ICSSParser.InversiveAdditionContext ctx) {
+        currentContainer.push(new SubtractOperation());
+    }
+
+    @Override
+    public void exitInversiveAddition(ICSSParser.InversiveAdditionContext ctx) {
+        SubtractOperation subtractOperation = (SubtractOperation) currentContainer.pop();
+        currentContainer.peek().addChild(subtractOperation);
     }
 
     @Override

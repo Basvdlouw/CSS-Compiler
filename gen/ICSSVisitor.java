@@ -16,12 +16,6 @@ public interface ICSSVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStylesheet(ICSSParser.StylesheetContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ICSSParser#stylesheetPart}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStylesheetPart(ICSSParser.StylesheetPartContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ICSSParser#variableAssignment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -33,6 +27,12 @@ public interface ICSSVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitStylerule(ICSSParser.StyleruleContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ICSSParser#stylesheetPart}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStylesheetPart(ICSSParser.StylesheetPartContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ICSSParser#declaration}.
 	 * @param ctx the parse tree
@@ -46,17 +46,40 @@ public interface ICSSVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpression(ICSSParser.ExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ICSSParser#operation}.
+	 * Visit a parse tree produced by the {@code variableInOperation}
+	 * labeled alternative in {@link ICSSParser#operation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitOperation(ICSSParser.OperationContext ctx);
+	T visitVariableInOperation(ICSSParser.VariableInOperationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ICSSParser#operator}.
+	 * Visit a parse tree produced by the {@code inversiveAddition}
+	 * labeled alternative in {@link ICSSParser#operation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitOperator(ICSSParser.OperatorContext ctx);
+	T visitInversiveAddition(ICSSParser.InversiveAdditionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code multiplication}
+	 * labeled alternative in {@link ICSSParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiplication(ICSSParser.MultiplicationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code literalInOperation}
+	 * labeled alternative in {@link ICSSParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLiteralInOperation(ICSSParser.LiteralInOperationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code addition}
+	 * labeled alternative in {@link ICSSParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddition(ICSSParser.AdditionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ICSSParser#property}.
 	 * @param ctx the parse tree
@@ -113,9 +136,9 @@ public interface ICSSVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIdSelector(ICSSParser.IdSelectorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ICSSParser#variable}.
+	 * Visit a parse tree produced by {@link ICSSParser#variableReference}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVariable(ICSSParser.VariableContext ctx);
+	T visitVariableReference(ICSSParser.VariableReferenceContext ctx);
 }

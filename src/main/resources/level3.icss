@@ -1,4 +1,4 @@
-LinkColor := #ff0000;
+gLinkColor := #ff0000;
 ParWidth := 100px;
 
 p {

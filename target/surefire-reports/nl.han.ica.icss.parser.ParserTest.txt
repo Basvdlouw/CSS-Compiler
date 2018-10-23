@@ -1,13 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: nl.han.ica.icss.parser.ParserTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.08 s <<< FAILURE! - in nl.han.ica.icss.parser.ParserTest
-testParseLevel2  Time elapsed: 0.009 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: 
-	at nl.han.ica.icss.parser.ParserTest.parseTestFile(ParserTest.java:50)
-	at nl.han.ica.icss.parser.ParserTest.testParseLevel2(ParserTest.java:73)
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.085 s <<< FAILURE! - in nl.han.ica.icss.parser.ParserTest
+testParseLevel2  Time elapsed: 0.012 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[Stylesheet|[VariableAssignment (LinkColor)|[VariableReference (LinkColor)|][Color literal (#ff0000)|]][VariableAssignment (ParWidth)|[VariableReference (ParWidth)|][Pixel literal (500)|]][Stylerule|[TagSelector p|][Declaration|[Property: (background-color)|][Color literal (#ffffff)|]][Declaration|[Property: (width)|][VariableReference (ParWidth)|]]][Stylerule|[TagSelector a|][Declaration|[Property: (color)|][VariableReference (LinkColor)|]]][Stylerule|[IdSelector #menu|][Declaration|[Property: (width)|][Add|[VariableReference (ParWidth)|][Multiply|[Scalar literal (2)|][Pixel literal (10)|]]]]][Stylerule|[ClassSelector .menu|][Declaration|[Property: (color)|][Color literal (#000000)|]]]]> but was: <[Stylesheet|[VariableAssignment (LinkColor)|[VariableReference (LinkColor)|][Color literal (#ff0000)|]][VariableAssignment (ParWidth)|[VariableReference (ParWidth)|][Pixel literal (500)|]][Stylerule|[TagSelector p|][Declaration|[Property: (background-color)|][Color literal (#ffffff)|]][Declaration|[Property: (width)|][VariableReference (ParWidth)|]]][Stylerule|[TagSelector a|][Declaration|[Property: (color)|][VariableReference (LinkColor)|]]][Stylerule|[IdSelector #menu|][Declaration|[Property: (width)|][Add|[VariableReference (ParWidth)|][VariableReference (ParWidth)|]]]][Stylerule|[ClassSelector .menu|][Declaration|[Property: (color)|][Color literal (#000000)|]]]]>
+	at nl.han.ica.icss.parser.ParserTest.testParseLevel2(ParserTest.java:75)
 
-testParseLevel3  Time elapsed: 0.001 s  <<< FAILURE!
+testParseLevel3  Time elapsed: 0.002 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 	at nl.han.ica.icss.parser.ParserTest.parseTestFile(ParserTest.java:50)
 	at nl.han.ica.icss.parser.ParserTest.testParseLevel3(ParserTest.java:80)

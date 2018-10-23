@@ -27,18 +27,6 @@ public class ICSSBaseListener implements ICSSListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStylesheetPart(ICSSParser.StylesheetPartContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStylesheetPart(ICSSParser.StylesheetPartContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterVariableAssignment(ICSSParser.VariableAssignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -58,6 +46,18 @@ public class ICSSBaseListener implements ICSSListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitStylerule(ICSSParser.StyleruleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStylesheetPart(ICSSParser.StylesheetPartContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStylesheetPart(ICSSParser.StylesheetPartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -87,25 +87,61 @@ public class ICSSBaseListener implements ICSSListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperation(ICSSParser.OperationContext ctx) { }
+	@Override public void enterVariableInOperation(ICSSParser.VariableInOperationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperation(ICSSParser.OperationContext ctx) { }
+	@Override public void exitVariableInOperation(ICSSParser.VariableInOperationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperator(ICSSParser.OperatorContext ctx) { }
+	@Override public void enterInversiveAddition(ICSSParser.InversiveAdditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperator(ICSSParser.OperatorContext ctx) { }
+	@Override public void exitInversiveAddition(ICSSParser.InversiveAdditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMultiplication(ICSSParser.MultiplicationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMultiplication(ICSSParser.MultiplicationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLiteralInOperation(ICSSParser.LiteralInOperationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLiteralInOperation(ICSSParser.LiteralInOperationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAddition(ICSSParser.AdditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAddition(ICSSParser.AdditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -207,13 +243,13 @@ public class ICSSBaseListener implements ICSSListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariable(ICSSParser.VariableContext ctx) { }
+	@Override public void enterVariableReference(ICSSParser.VariableReferenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariable(ICSSParser.VariableContext ctx) { }
+	@Override public void exitVariableReference(ICSSParser.VariableReferenceContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
