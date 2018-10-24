@@ -1,40 +1,40 @@
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\selectors\IdSelector.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\parser\ASTListener.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\literals\PercentageLiteral.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\selectors\ClassSelector.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\VariableAssignment.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\target\generated-sources\antlr4\nl\han\ica\icss\parser\ICSSLexer.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\target\generated-sources\antlr4\nl\han\ica\icss\parser\ICSSBaseListener.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\transforms\Transform.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\ASTPane.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\literals\ColorLiteral.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\generator\Generator.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\InputPane.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\Pipeline.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Declaration.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\transforms\EvalExpressions.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\target\generated-sources\antlr4\nl\han\ica\icss\parser\ICSSParser.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\operations\SubtractOperation.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\operations\MultiplyOperation.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Stylerule.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\transforms\RemoveNesting.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Expression.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\types\ExpressionType.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\ASTNode.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\literals\ScalarLiteral.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\Main.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\AST.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\checker\Checker.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Literal.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\target\generated-sources\antlr4\nl\han\ica\icss\parser\ICSSListener.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Stylesheet.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\selectors\TagSelector.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\VariableReference.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\literals\PixelLiteral.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\checker\SemanticError.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\OutputPane.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\PropertyName.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Operation.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\operations\AddOperation.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\FeedbackPane.java
-G:\School\css compiler\ICA-CSS\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Selector.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Operation.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Expression.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\PropertyName.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\operations\SubtractOperation.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Stylesheet.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\VariableReference.java
+D:\school\ASD\APP\CSS-Compiler\target\generated-sources\antlr4\nl\han\ica\icss\parser\ICSSBaseListener.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\ASTPane.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\VariableAssignment.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\Pipeline.java
+D:\school\ASD\APP\CSS-Compiler\target\generated-sources\antlr4\nl\han\ica\icss\parser\ICSSParser.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\types\ExpressionType.java
+D:\school\ASD\APP\CSS-Compiler\target\generated-sources\antlr4\nl\han\ica\icss\parser\ICSSLexer.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\checker\Checker.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\literals\PercentageLiteral.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Selector.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\generator\Generator.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\literals\ColorLiteral.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\operations\MultiplyOperation.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\parser\ASTListener.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Literal.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\FeedbackPane.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\Main.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\AST.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Declaration.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\checker\SemanticError.java
+D:\school\ASD\APP\CSS-Compiler\target\generated-sources\antlr4\nl\han\ica\icss\parser\ICSSListener.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\Stylerule.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\InputPane.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\gui\OutputPane.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\selectors\ClassSelector.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\selectors\IdSelector.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\literals\ScalarLiteral.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\literals\PixelLiteral.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\operations\AddOperation.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\ASTNode.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\transforms\EvalExpressions.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\transforms\RemoveNesting.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\transforms\Transform.java
+D:\school\ASD\APP\CSS-Compiler\src\main\java\nl\han\ica\icss\ast\selectors\TagSelector.java

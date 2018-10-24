@@ -36,13 +36,17 @@ public class ASTListener extends ICSSBaseListener {
 
 
     //Traverse through tree using stack
+    //On enter push to stack or add child
+    //On exit pop from stack and add as a child
     @Override
     public void enterStylesheet(ICSSParser.StylesheetContext ctx) {
         Stylesheet stylesheet = new Stylesheet();
         currentContainer.push(stylesheet);
+        //add stylesheet to AST tree
         ast.setRoot(stylesheet);
     }
 
+    //Not necessary to pop stylesheet from the stack since it has already been added to the AST tree but still added for consistency
     @Override
     public void exitStylesheet(ICSSParser.StylesheetContext ctx) {
         currentContainer.pop();
@@ -158,5 +162,4 @@ public class ASTListener extends ICSSBaseListener {
     public void enterColorLiteral(ICSSParser.ColorLiteralContext ctx) {
         currentContainer.peek().addChild(new ColorLiteral(ctx.getText()));
     }
-
 }
