@@ -28,7 +28,7 @@ public class Checker {
 
 
     /*/
-    check every node in the ast tree using visitor class
+    check every node in the ast tree recursively
      */
     private void checkNodes(List<ASTNode> ast) {
         for (ASTNode astNode : ast) {

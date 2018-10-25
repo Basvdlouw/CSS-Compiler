@@ -1,5 +1,6 @@
 package nl.han.ica.icss.ast;
 
+import nl.han.ica.icss.ast.types.ExpressionType;
 import nl.han.ica.icss.checker.SemanticError;
 
 import java.util.ArrayList;
@@ -9,6 +10,9 @@ import java.util.Objects;
 public class AST {
 	//The root of the tree
 	public Stylesheet root;
+
+	//Can save the variableTypes hashmap here if necessary
+	//private HashMap<String, ExpressionType> variableTypes;
 
 	public AST() {
 		root = new Stylesheet();
@@ -49,4 +53,13 @@ public class AST {
 	public int hashCode() {
 		return Objects.hash(root);
 	}
+
+	//Getter and setter for the variableTypes hashmap
+//	public HashMap<String, ExpressionType> getVariableTypes() {
+//		return variableTypes;
+//	}
+//
+//	public void setVariableTypes(HashMap<String, ExpressionType> variableTypes) {
+//		this.variableTypes = variableTypes;
+//	}
 }
