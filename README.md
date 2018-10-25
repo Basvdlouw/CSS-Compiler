@@ -1,3 +1,3 @@
 # CSS-Compiler
 
-run mvn package and run main method
+run mvn package to install
