@@ -1,7 +1,9 @@
 package nl.han.ica.icss.transforms;
 
+import nl.han.ica.icss.ast.Expression;
 import nl.han.ica.icss.ast.Literal;
 import nl.han.ica.icss.ast.Operation;
+import nl.han.ica.icss.ast.VariableReference;
 import nl.han.ica.icss.ast.literals.PercentageLiteral;
 import nl.han.ica.icss.ast.literals.PixelLiteral;
 import nl.han.ica.icss.ast.literals.ScalarLiteral;
@@ -12,16 +14,22 @@ import nl.han.ica.icss.ast.operations.SubtractOperation;
 /*/
 The calculateOperation method gets called in the EvalExpressions class
  */
-public class CalculateOperation {
+class CalculateOperation {
+    /*/
+    Calculate operation
+     */
+    static Expression calculateOperation(Operation operation, ConvertVariable converter) {
+        if(operation.lhs instanceof VariableReference) {
+            operation.lhs = converter.convertVariableReferenceToLiteral((VariableReference) operation.lhs);
+        }
 
+        if(operation.rhs instanceof VariableReference) {
+            operation.rhs = converter.convertVariableReferenceToLiteral((VariableReference) operation.rhs);
+        }
 
-/*/
-Calculate operation
- */
-    public static Literal calculateOperation(Operation operation) {
-        if (operation.lhs instanceof PixelLiteral && operation.rhs instanceof PixelLiteral) {
+        if (operation.lhs instanceof PixelLiteral || operation.rhs instanceof PixelLiteral) {
             return calculatePixelOperation(operation);
-        } else if (operation.lhs instanceof PercentageLiteral && operation.rhs instanceof PercentageLiteral) {
+        } else if (operation.lhs instanceof PercentageLiteral || operation.rhs instanceof PercentageLiteral) {
             return calculatePercentageOperation(operation);
         }
         return calculateScalarOperation(operation);

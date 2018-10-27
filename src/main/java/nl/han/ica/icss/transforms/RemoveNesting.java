@@ -6,5 +6,6 @@ public class RemoveNesting implements Transform {
 
     @Override
     public void apply(AST ast) {
+
     }
 }

@@ -14,6 +14,7 @@ import nl.han.ica.icss.ast.operations.SubtractOperation;
 import nl.han.ica.icss.ast.types.ExpressionType;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Objects;
 
 /*/
@@ -24,7 +25,7 @@ class Validator {
     /*/
     Check what type of node it is
      */
-    void checkNode(ASTNode astNode, HashMap<String, ExpressionType> variableTypes) {
+    void checkNode(ASTNode astNode, LinkedList<HashMap<String, ExpressionType>> variableTypes) {
         if (astNode instanceof VariableReference)
             checkVariableReference((VariableReference) astNode, variableTypes);
         else if (astNode instanceof Operation)
@@ -37,12 +38,16 @@ class Validator {
     /*/
     Check for declaration errors
      */
-    private void checkDeclaration(Declaration declaration, HashMap<String, ExpressionType> variableTypes) {
+    private void checkDeclaration(Declaration declaration, LinkedList<HashMap<String, ExpressionType>> variableTypes) {
         ExpressionType expressionType = null;
 
         //Check for the expression type if it's assigned to a variable
         if (declaration.expression instanceof VariableReference)
-            expressionType = variableTypes.get(((VariableReference) declaration.expression).name);
+            for (HashMap hashMap : variableTypes) {
+                if (hashMap.get(((VariableReference) declaration.expression).name) != null) {
+                    expressionType = (ExpressionType) hashMap.get(((VariableReference) declaration.expression).name);
+                }
+            }
 
         //Check if "width" or "height" use pixel or percentage literals
         if (declaration.property.name.equals("width") || declaration.property.name.equals("height")) {
@@ -62,26 +67,36 @@ class Validator {
     /*/
     Check for variable reference errors
      */
-    private void checkVariableReference(VariableReference variableReference, HashMap<String, ExpressionType> variableTypes) {
-
+    private void checkVariableReference(VariableReference variableReference, LinkedList<HashMap<String, ExpressionType>> variableTypes) {
         //Checks if a variable reference does not reference a variable that was never declared
-        if (!variableTypes.containsKey(variableReference.name)) {
-            variableReference.setError("This variable reference was never been declared");
+        for (HashMap<String, ExpressionType> hashMap : variableTypes) {
+            if (hashMap.containsKey(variableReference.name)) {
+                return;
+            }
         }
+        variableReference.setError("This variable references a variable that has not been declared");
     }
 
 
     /*/
     Check for operation errors
      */
-    private void checkOperation(Operation operation, HashMap<String, ExpressionType> variableTypes) {
+    private void checkOperation(Operation operation, LinkedList<HashMap<String, ExpressionType>> variableTypes) {
         ExpressionType expressionTypeLhs = null;
         ExpressionType expressionTypeRhs = null;
 
         if (operation.lhs instanceof VariableReference)
-            expressionTypeLhs = variableTypes.get(((VariableReference) operation.lhs).name);
+            for (HashMap hashMap : variableTypes) {
+                if (hashMap.get(((VariableReference) operation.lhs).name) != null) {
+                    expressionTypeLhs = (ExpressionType) hashMap.get(((VariableReference) operation.lhs).name);
+                }
+            }
         if (operation.rhs instanceof VariableReference)
-            expressionTypeRhs = variableTypes.get(((VariableReference) operation.rhs).name);
+            for (HashMap hashMap : variableTypes) {
+                if (hashMap.get(((VariableReference) operation.rhs).name) != null) {
+                    expressionTypeRhs = (ExpressionType) hashMap.get(((VariableReference) operation.rhs).name);
+                }
+            }
 
         //Checks if a color is used in an operation
         if (operation.lhs instanceof ColorLiteral
