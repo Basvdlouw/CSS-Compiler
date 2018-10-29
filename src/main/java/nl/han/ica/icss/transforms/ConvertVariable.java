@@ -4,15 +4,16 @@ import nl.han.ica.icss.ast.Literal;
 import nl.han.ica.icss.ast.VariableReference;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 /*/
 This class has a function that converts a variable references back to it's original value
  */
 class ConvertVariable {
 
-    private LinkedList<HashMap<String, Literal>> variableValues;
+    private List<HashMap<String, Literal>> variableValues;
 
-    ConvertVariable(LinkedList<HashMap<String, Literal>> variableValues) {
+    ConvertVariable(List<HashMap<String, Literal>> variableValues) {
         this.variableValues = variableValues;
     }
 

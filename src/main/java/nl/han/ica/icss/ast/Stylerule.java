@@ -32,7 +32,7 @@ public class Stylerule extends ASTNode {
     @Override
     public ASTNode addChild(ASTNode child) {
 		if(child instanceof Selector)
-			selectors.add((Selector) child);
+			selectors.add(0,(Selector) child);
 		else
         	body.add(child);
 

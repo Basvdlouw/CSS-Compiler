@@ -12,12 +12,9 @@ import java.util.List;
 
 import static nl.han.ica.icss.transforms.CalculateOperation.calculateOperation;
 
-//TODO: Fix transformer width variable + add nesting funcitonality
-//Todo: fix variables
-//Todo: add nesting functionality
 public class EvalExpressions implements Transform {
 
-    private LinkedList<HashMap<String, Literal>> variableValues;
+    private List<HashMap<String, Literal>> variableValues;
     private ConvertVariable converter;
 
     @Override
@@ -45,7 +42,7 @@ public class EvalExpressions implements Transform {
     /*/
     Check if the expression is an operation or a variable reference
      */
-    private void evaluateExpression(ASTNode ast, LinkedList<HashMap<String, Literal>> variableValues) {
+    private void evaluateExpression(ASTNode ast, List<HashMap<String, Literal>> variableValues) {
         if (ast instanceof Declaration) {
             if (((Declaration) ast).expression instanceof VariableReference) {
                 ((Declaration) ast).expression = converter.convertVariableReferenceToLiteral((VariableReference) ((Declaration) ast).expression);

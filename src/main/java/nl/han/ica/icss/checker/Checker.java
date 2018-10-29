@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-//TODO fix variables
 public class Checker {
     private LinkedList<HashMap<String, ExpressionType>> variableTypes;
     private Validator validator;
