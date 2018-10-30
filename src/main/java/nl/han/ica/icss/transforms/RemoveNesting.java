@@ -13,11 +13,12 @@ public class RemoveNesting implements Transform {
         removeNesting(ast);
     }
 
-    List<ASTNode> addToRoot = new ArrayList<>();
+    private List<ASTNode> addToRoot;
 
     private void removeNesting(AST ast) {
+        addToRoot = new ArrayList<>();
         addSelectors(ast.root.getChildren());
-        removeNesting(ast.root.getChildren(), ast);
+        removeNesting(ast.root.getChildren(), ast, ast.root);
         for (ASTNode node : addToRoot) {
             ast.root.addChild(node);
         }
@@ -48,14 +49,15 @@ public class RemoveNesting implements Transform {
     /*/
         Loop through tree and remove all nesting
          */
-    private void removeNesting(List<ASTNode> astNodes, AST ast) {
+    private void removeNesting(List<ASTNode> astNodes, AST ast, ASTNode parent) {
         for (ASTNode node : astNodes) {
             if (node instanceof Stylerule) {
                 if (!ast.root.getChildren().contains(node)) {
                     addToRoot.add(node);
+                    parent.removeChild(node);
                 }
                 if (node.getChildren() != null) {
-                    removeNesting(node.getChildren(), ast);
+                    removeNesting(node.getChildren(), ast, node);
                 }
             }
         }
