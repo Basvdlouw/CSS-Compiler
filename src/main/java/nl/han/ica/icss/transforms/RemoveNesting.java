@@ -1,21 +1,23 @@
 package nl.han.ica.icss.transforms;
 
-import nl.han.ica.icss.ast.*;
+import nl.han.ica.icss.ast.AST;
+import nl.han.ica.icss.ast.ASTNode;
+import nl.han.ica.icss.ast.Selector;
+import nl.han.ica.icss.ast.Stylerule;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class RemoveNesting implements Transform {
+    private List<ASTNode> addToRoot;
 
     @Override
     public void apply(AST ast) {
-        removeNesting(ast);
+        checkNodes(ast);
     }
 
-    private List<ASTNode> addToRoot;
 
-    private void removeNesting(AST ast) {
+    private void checkNodes(AST ast) {
         addToRoot = new ArrayList<>();
         addSelectors(ast.root.getChildren());
         removeNesting(ast.root.getChildren(), ast, ast.root);
@@ -25,9 +27,26 @@ public class RemoveNesting implements Transform {
     }
 
     /*/
+    Loop through tree and remove all nesting
+     */
+    private void removeNesting(List<ASTNode> astNodes, AST ast, ASTNode parent) {
+        for (ASTNode node : astNodes) {
+            if (node instanceof Stylerule) {
+                if (!ast.root.getChildren().contains(node)) {
+                    addToRoot.add(node);
+                    parent.removeChild(node);
+                }
+                if (node.getChildren() != null) {
+                    removeNesting(node.getChildren(), ast, node);
+                }
+            }
+        }
+    }
+
+
+    /*/
     Loop through tree and add parent selectors to children
      */
-    //TODO: remove 1 for loop
     private void addSelectors(List<ASTNode> astNodes) {
         for (ASTNode node : astNodes) {
             if (node instanceof Stylerule) {
@@ -46,21 +65,6 @@ public class RemoveNesting implements Transform {
         }
     }
 
-    /*/
-        Loop through tree and remove all nesting
-         */
-    private void removeNesting(List<ASTNode> astNodes, AST ast, ASTNode parent) {
-        for (ASTNode node : astNodes) {
-            if (node instanceof Stylerule) {
-                if (!ast.root.getChildren().contains(node)) {
-                    addToRoot.add(node);
-                    parent.removeChild(node);
-                }
-                if (node.getChildren() != null) {
-                    removeNesting(node.getChildren(), ast, node);
-                }
-            }
-        }
-    }
+
 }
 
