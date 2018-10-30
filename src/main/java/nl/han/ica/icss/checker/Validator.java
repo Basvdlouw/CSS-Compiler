@@ -1,9 +1,6 @@
 package nl.han.ica.icss.checker;
 
-import nl.han.ica.icss.ast.ASTNode;
-import nl.han.ica.icss.ast.Declaration;
-import nl.han.ica.icss.ast.Operation;
-import nl.han.ica.icss.ast.VariableReference;
+import nl.han.ica.icss.ast.*;
 import nl.han.ica.icss.ast.literals.ColorLiteral;
 import nl.han.ica.icss.ast.literals.PercentageLiteral;
 import nl.han.ica.icss.ast.literals.PixelLiteral;
@@ -106,6 +103,16 @@ class Validator {
             operation.setError("A color can not be used in an operation");
         }
 
+        //Check if a scalar literal is used in a multiplication
+        else if (operation instanceof MultiplyOperation) {
+            if (!(operation.lhs instanceof ScalarLiteral
+                    && !(operation.rhs instanceof ScalarLiteral)
+                    && !Objects.equals(expressionTypeLhs, ExpressionType.SCALAR)
+                    && !Objects.equals(expressionTypeRhs, ExpressionType.SCALAR))) {
+                operation.setError("A scalar value needs to be used in a multiplication");
+            }
+        }
+
         //Check if the values are of the same type when adding or substracting values
         else if (operation instanceof AddOperation || operation instanceof SubtractOperation) {
             if (operation.lhs instanceof PercentageLiteral && operation.rhs instanceof PixelLiteral
@@ -113,19 +120,14 @@ class Validator {
                     || operation.lhs instanceof PercentageLiteral && Objects.equals(expressionTypeRhs, ExpressionType.PIXEL)
                     || Objects.equals(expressionTypeLhs, ExpressionType.PIXEL) && operation.rhs instanceof PercentageLiteral
                     || operation.lhs instanceof PixelLiteral && Objects.equals(expressionTypeRhs, ExpressionType.PERCENTAGE)
-                    || Objects.equals(expressionTypeLhs, ExpressionType.PERCENTAGE) && operation.rhs instanceof PixelLiteral) {
+                    || Objects.equals(expressionTypeLhs, ExpressionType.PERCENTAGE) && operation.rhs instanceof PixelLiteral
+                    || operation.lhs instanceof ScalarLiteral && (operation.rhs instanceof PixelLiteral || operation.rhs instanceof PercentageLiteral)
+                    || (operation.lhs instanceof PixelLiteral || operation.lhs instanceof PercentageLiteral) && operation.rhs instanceof ScalarLiteral
+                    || expressionTypeLhs == ExpressionType.SCALAR  && (operation.rhs instanceof PixelLiteral || operation.rhs instanceof PercentageLiteral)
+                    || (operation.lhs instanceof PixelLiteral || operation.lhs instanceof PercentageLiteral) && expressionTypeRhs == ExpressionType.SCALAR) {
                 operation.setError("Can not substract or add values if they aren't from the same type");
-            }
-        }
-
-        //Check if a scalar literal is used in a multiplication
-        else if (operation instanceof MultiplyOperation) {
-            if (!(operation.lhs instanceof ScalarLiteral
-                    && !(operation.rhs instanceof ScalarLiteral))
-                    && !Objects.equals(expressionTypeLhs, ExpressionType.SCALAR)
-                    && !Objects.equals(expressionTypeRhs, ExpressionType.SCALAR)) {
-                operation.setError("A scalar value needs to be used in a multiplication");
             }
         }
     }
 }
+

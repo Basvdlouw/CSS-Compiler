@@ -28,7 +28,7 @@ public class Generator {
             if (i == 0)
                 selectors.append(stylerule.selectors.get(i));
             else
-                selectors.append(" " + stylerule.selectors.get(i));
+                selectors.append(" ").append(stylerule.selectors.get(i));
         }
         builder.append(selectors.toString())
                 .append(" {")
@@ -49,9 +49,9 @@ public class Generator {
         if (declaration.expression instanceof ColorLiteral)
             builder.append(((ColorLiteral) declaration.expression).value);
         else if (declaration.expression instanceof PixelLiteral)
-            builder.append(((PixelLiteral) declaration.expression).value + "px");
+            builder.append(((PixelLiteral) declaration.expression).value).append("px");
         else if (declaration.expression instanceof PercentageLiteral)
-            builder.append(((PercentageLiteral) declaration.expression).value + "%");
+            builder.append(((PercentageLiteral) declaration.expression).value).append("%");
         else if (declaration.expression instanceof ScalarLiteral)
             builder.append(((ScalarLiteral) declaration.expression).value);
         builder.append(";")
