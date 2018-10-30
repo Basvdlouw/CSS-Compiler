@@ -24,32 +24,28 @@ public class Generator {
 
     private void generateStyleRule(Stylerule stylerule, StringBuilder builder) {
         StringBuilder selectors = new StringBuilder();
-
         for (int i = 0; i < stylerule.selectors.size(); i++) {
             if (i == 0)
                 selectors.append(stylerule.selectors.get(i));
             else
                 selectors.append(" " + stylerule.selectors.get(i));
         }
-
         builder.append(selectors.toString())
                 .append(" {")
                 .append(System.lineSeparator());
         for (ASTNode node : stylerule.getChildren()) {
             if (node instanceof Declaration) {
-                addDeclaration((Declaration) node, builder);
+                generateDeclaration((Declaration) node, builder);
             }
         }
-
         builder.append('}')
                 .append(System.lineSeparator());
     }
 
-    private void addDeclaration(Declaration declaration, StringBuilder builder) {
+    private void generateDeclaration(Declaration declaration, StringBuilder builder) {
         builder.append("    ")
                 .append(declaration.property.name)
                 .append(": ");
-
         if (declaration.expression instanceof ColorLiteral)
             builder.append(((ColorLiteral) declaration.expression).value);
         else if (declaration.expression instanceof PixelLiteral)
