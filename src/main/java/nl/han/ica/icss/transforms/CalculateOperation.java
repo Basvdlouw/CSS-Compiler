@@ -1,5 +1,6 @@
 package nl.han.ica.icss.transforms;
 
+import com.google.common.base.Converter;
 import nl.han.ica.icss.ast.Expression;
 import nl.han.ica.icss.ast.Literal;
 import nl.han.ica.icss.ast.Operation;
@@ -12,76 +13,56 @@ import nl.han.ica.icss.ast.operations.MultiplyOperation;
 import nl.han.ica.icss.ast.operations.SubtractOperation;
 
 /*/
-The calculateOperation method gets called in the EvalExpressions class
+The executeCalculation method gets called in the EvalExpressions class
  */
 class CalculateOperation {
-    /*/
-    Calculate operation
-     */
-    static Expression calculateOperation(Operation operation, ConvertVariable converter) {
-        if(operation.lhs instanceof VariableReference) {
-            operation.lhs = converter.convertVariableReferenceToLiteral((VariableReference) operation.lhs);
+
+    static Literal executeCalculation(Operation operation, ConvertVariable converter) {
+        Expression lhs = operation.lhs;
+        Expression rhs = operation.rhs;
+
+        if (operation.lhs instanceof VariableReference) {
+            lhs = converter.convertVariableReferenceToLiteral((VariableReference) operation.lhs);
         }
 
-        if(operation.rhs instanceof VariableReference) {
-            operation.rhs = converter.convertVariableReferenceToLiteral((VariableReference) operation.rhs);
+        if (operation.rhs instanceof VariableReference) {
+            rhs = converter.convertVariableReferenceToLiteral((VariableReference) operation.rhs);
         }
 
-        if (operation.lhs instanceof PixelLiteral || operation.rhs instanceof PixelLiteral) {
-            return calculatePixelOperation(operation);
-        } else if (operation.lhs instanceof PercentageLiteral || operation.rhs instanceof PercentageLiteral) {
-            return calculatePercentageOperation(operation);
+        if (rhs instanceof Operation) {
+            rhs = executeCalculation((Operation) rhs, converter);
         }
-        return calculateScalarOperation(operation);
-    }
-
-    /*/
-    Calculate pixel operations
-     */
-    private static Literal calculatePixelOperation(Operation operation) {
-        if (operation instanceof AddOperation) {
-            return new PixelLiteral(((PixelLiteral) operation.lhs).value + ((PixelLiteral) operation.rhs).value);
-        } else if (operation instanceof SubtractOperation) {
-            return new PixelLiteral(((PixelLiteral) operation.lhs).value - ((PixelLiteral) operation.rhs).value);
-        } else if (operation instanceof MultiplyOperation) {
-            return new PixelLiteral(((PixelLiteral) operation.lhs).value * ((PixelLiteral) operation.rhs).value);
-        }
-        return null;
-    }
-
-    /*/
-    Calculate percentage operations
-     */
-    private static Literal calculatePercentageOperation(Operation operation) {
-        if (operation instanceof AddOperation) {
-            return new PercentageLiteral(((PercentageLiteral) operation.lhs).value + ((PercentageLiteral) operation.rhs).value);
-        } else if (operation instanceof SubtractOperation) {
-            return new PercentageLiteral(((PercentageLiteral) operation.lhs).value - ((PercentageLiteral) operation.rhs).value);
-        } else if (operation instanceof MultiplyOperation) {
-            return new PercentageLiteral(((PercentageLiteral) operation.lhs).value * ((PercentageLiteral) operation.rhs).value);
-        }
-        return null;
-    }
-
-    /*/
-    Calculate scalar operations
-     */
-    private static Literal calculateScalarOperation(Operation operation) {
-        if (operation.lhs instanceof ScalarLiteral && operation.rhs instanceof PixelLiteral) {
+        if (lhs instanceof PixelLiteral && rhs instanceof PixelLiteral) {
             if (operation instanceof AddOperation) {
-                return new PixelLiteral(((ScalarLiteral) operation.lhs).value + ((PixelLiteral) operation.rhs).value);
+                return new PixelLiteral(((PixelLiteral) lhs).value + ((PixelLiteral) rhs).value);
             } else if (operation instanceof SubtractOperation) {
-                return new PixelLiteral(((ScalarLiteral) operation.lhs).value - ((PixelLiteral) operation.rhs).value);
+                return new PixelLiteral(((PixelLiteral) lhs).value - ((PixelLiteral) rhs).value);
             } else if (operation instanceof MultiplyOperation) {
-                return new PixelLiteral(((ScalarLiteral) operation.lhs).value * ((PixelLiteral) operation.rhs).value);
+                return new PixelLiteral(((PixelLiteral) lhs).value * ((PixelLiteral) rhs).value);
             }
-        } else if (operation.lhs instanceof ScalarLiteral && operation.rhs instanceof PercentageLiteral) {
+        } else if (lhs instanceof PercentageLiteral && rhs instanceof PercentageLiteral) {
             if (operation instanceof AddOperation) {
-                return new PercentageLiteral(((ScalarLiteral) operation.lhs).value + ((PercentageLiteral) operation.rhs).value);
+                return new PercentageLiteral(((PercentageLiteral) lhs).value + ((PercentageLiteral) rhs).value);
             } else if (operation instanceof SubtractOperation) {
-                return new PercentageLiteral(((ScalarLiteral) operation.lhs).value - ((PercentageLiteral) operation.rhs).value);
+                return new PercentageLiteral(((PercentageLiteral) lhs).value - ((PercentageLiteral) rhs).value);
             } else if (operation instanceof MultiplyOperation) {
-                return new PercentageLiteral(((ScalarLiteral) operation.lhs).value * ((PercentageLiteral) operation.rhs).value);
+                return new PercentageLiteral(((PercentageLiteral) lhs).value * ((PercentageLiteral) rhs).value);
+            }
+        } else if (lhs instanceof ScalarLiteral && rhs instanceof PixelLiteral) {
+            if (operation instanceof AddOperation) {
+                return new PixelLiteral(((ScalarLiteral) lhs).value + ((PixelLiteral) rhs).value);
+            } else if (operation instanceof SubtractOperation) {
+                return new PixelLiteral(((ScalarLiteral) lhs).value - ((PixelLiteral) rhs).value);
+            } else if (operation instanceof MultiplyOperation) {
+                return new PixelLiteral(((ScalarLiteral) lhs).value * ((PixelLiteral) rhs).value);
+            }
+        } else if (lhs instanceof ScalarLiteral && rhs instanceof PercentageLiteral) {
+            if (operation instanceof AddOperation) {
+                return new PercentageLiteral(((ScalarLiteral) lhs).value + ((PercentageLiteral) rhs).value);
+            } else if (operation instanceof SubtractOperation) {
+                return new PercentageLiteral(((ScalarLiteral) lhs).value - ((PercentageLiteral) rhs).value);
+            } else if (operation instanceof MultiplyOperation) {
+                return new PercentageLiteral(((ScalarLiteral) lhs).value * ((PercentageLiteral) rhs).value);
             }
         }
         return null;

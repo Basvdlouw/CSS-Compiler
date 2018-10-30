@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /*/
-This class has a function that converts a variable references back to it's original value
+This class has a function that converts a variable references back to it's original value (the Literal value)
  */
 class ConvertVariable {
 

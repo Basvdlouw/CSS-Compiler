@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import static nl.han.ica.icss.transforms.CalculateOperation.calculateOperation;
+import static nl.han.ica.icss.transforms.CalculateOperation.executeCalculation;
 
 public class EvalExpressions implements Transform {
 
@@ -48,7 +48,7 @@ public class EvalExpressions implements Transform {
                 ((Declaration) ast).expression = converter.convertVariableReferenceToLiteral((VariableReference) ((Declaration) ast).expression);
             }
             if (((Declaration) ast).expression instanceof Operation) {
-                ((Declaration) ast).expression = calculateOperation((Operation) ((Declaration) ast).expression, converter);
+                ((Declaration) ast).expression = executeCalculation((Operation) ((Declaration) ast).expression, converter);
             }
         }
     }
