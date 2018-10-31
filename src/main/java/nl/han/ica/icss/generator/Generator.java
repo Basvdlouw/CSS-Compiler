@@ -45,16 +45,22 @@ public class Generator {
     private void generateDeclaration(Declaration declaration, StringBuilder builder) {
         builder.append("    ")
                 .append(declaration.property.name)
-                .append(": ");
-        if (declaration.expression instanceof ColorLiteral)
-            builder.append(((ColorLiteral) declaration.expression).value);
-        else if (declaration.expression instanceof PixelLiteral)
-            builder.append(((PixelLiteral) declaration.expression).value).append("px");
-        else if (declaration.expression instanceof PercentageLiteral)
-            builder.append(((PercentageLiteral) declaration.expression).value).append("%");
-        else if (declaration.expression instanceof ScalarLiteral)
-            builder.append(((ScalarLiteral) declaration.expression).value);
-        builder.append(";")
+                .append(": ")
+                .append(getExpressionValue(declaration.expression))
+                .append(";")
                 .append(System.lineSeparator());
+    }
+
+    private String getExpressionValue(Expression expression) {
+        if (expression instanceof ColorLiteral) {
+            return ((ColorLiteral) expression).value;
+        } else if (expression instanceof PercentageLiteral) {
+            return ((PercentageLiteral) expression).value + "%";
+        } else if (expression instanceof PixelLiteral) {
+            return ((PixelLiteral) expression).value + "px";
+        } else if (expression instanceof ScalarLiteral) {
+            return Integer.toString(((ScalarLiteral) expression).value);
+        }
+        return expression.toString();
     }
 }
